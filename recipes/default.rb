@@ -30,5 +30,12 @@ bash "import tarball to mongo" do
   EOS
 end
 
-
+bash "link default java" do
+  cwd "/usr/lib/jvm"
+  code <<-EOS
+    if [ ! -e default-java ] ; then
+	ln -s java-6-openjdk-amd64 default-java
+    fi
+  EOS
+end
 
